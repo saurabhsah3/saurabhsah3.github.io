@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saurabh Sah — Procurement Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f0ede8;
+  --muted: #8a8680;
+  --accent: #c8f076;
+  --accent2: #76c8f0;
+  --accent3: #f0c876;
+  --mono: 'DM Mono', monospace;
+  --serif: 'Fraunces', serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-badge {
+  font-size: 11px;
+  padding: 4px 12px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+.nav-badge::before { content: '● '; font-size: 8px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 120px 48px 80px;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-top: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,240,118,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-left { max-width: 560px; }
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--accent); }
+.hero-eyebrow-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.hero-name em { font-style: italic; color: var(--accent); }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 300;
+  color: var(--muted);
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+}
+.hero-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 40px;
+  border-left: 2px solid var(--border2);
+  padding-left: 20px;
+}
+.hero-desc strong { color: var(--text); font-weight: 500; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--border2);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
+
+/* HERO RIGHT */
+.hero-right { display: flex; flex-direction: column; gap: 16px; }
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.2s;
+}
+.stat-card:hover { border-color: var(--border2); }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.stat-icon { font-size: 24px; opacity: 0.4; }
+.award-card {
+  background: linear-gradient(135deg, rgba(200,240,118,0.06), transparent);
+  border: 1px solid rgba(200,240,118,0.2);
+  border-radius: 4px;
+  padding: 20px 24px;
+}
+.award-top { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.award-badge-pill {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: rgba(200,240,118,0.12);
+  color: var(--accent);
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+.award-title { font-size: 13px; font-weight: 500; color: var(--text); }
+.award-desc { font-size: 12px; color: var(--muted); }
+
+/* SECTION BASE */
+section { padding: 96px 48px; border-top: 1px solid var(--border); }
+.section-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 56px; }
+.section-num { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+/* HIGHLIGHTS */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.highlight-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.highlight-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.highlight-num {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin-bottom: 6px;
+}
+.highlight-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.c-green { color: var(--accent); }
+.c-blue { color: var(--accent2); }
+.c-amber { color: var(--accent3); }
+
+/* STACK */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.stack-item {
+  background: var(--bg);
+  padding: 24px 20px;
+  transition: background 0.2s;
+}
+.stack-item:hover { background: var(--bg2); }
+.stack-category {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.stack-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack-tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s;
+}
+.stack-tag:hover { color: var(--text); border-color: var(--border2); }
+
+/* EXPERIENCE */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+}
+.exp-item:first-child { padding-top: 0; }
+.exp-meta { padding-top: 4px; }
+.exp-period { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 8px; }
+.exp-company {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.exp-loc { font-size: 11px; color: var(--muted); }
+.exp-role {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-bullets li {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+}
+.exp-bullets li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  top: 2px;
+}
+.exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+/* EDUCATION */
+.edu-grid { display: flex; flex-direction: column; gap: 0; }
+.edu-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.edu-item:first-child { padding-top: 0; }
+.edu-year { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; padding-top: 4px; }
+.edu-status {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 10px;
+  padding: 2px 7px;
+  border: 1px dashed rgba(200,240,118,0.4);
+  color: var(--accent);
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+}
+.edu-inst {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.edu-degree { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* CONTACT */
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-tagline {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.contact-tagline em { font-style: italic; color: var(--accent); }
+.contact-sub { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 36px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  padding: 16px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+.contact-link:hover { border-color: var(--accent); }
+.contact-link-icon { font-size: 16px; }
+.contact-link-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+.contact-link-value { font-size: 13px; color: var(--text); }
+
+/* FOOTER */
+footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-copy { font-size: 12px; color: var(--muted); }
+.footer-built { font-size: 12px; color: var(--muted); }
+.footer-built span { color: var(--accent); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * { animation: fadeUp 0.6s ease forwards; opacity: 0; }
+.hero-eyebrow { animation-delay: 0.1s; }
+.hero-name { animation-delay: 0.2s; }
+.hero-title { animation-delay: 0.3s; }
+.hero-desc { animation-delay: 0.4s; }
+.hero-actions { animation-delay: 0.5s; }
+.hero-right { animation: fadeUp 0.6s ease 0.4s forwards; opacity: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+  .hero-right { display: none; }
+  section { padding: 64px 24px; }
+  .exp-item, .edu-item { grid-template-columns: 1fr; gap: 12px; }
+  .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Saurabh <span>Sah</span></a>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-badge">Open to Opportunities</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-top:none; padding-top: 120px;">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">CAPEX · OPEX · P2P · PAN-India</span>
+    </div>
+    <h1 class="hero-name">Saurabh<br><em>Sah.</em></h1>
+    <p class="hero-title">Procurement Professional<br>@ Allcargo Logistics</p>
+    <p class="hero-desc">
+      I turn procurement complexity into <strong>measurable cost savings</strong> — managing end-to-end P2P across Warehousing, EPC, and IT industries. 5+ years of driving vendor negotiations, rate contracts, and supply chain efficiency at scale.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in touch ↗</a>
+      <a href="https://drive.google.com/file/d/1iR4mfuFfYDR71xniBr_uq7cvLSr7upyZ/view?usp=sharing" target="_blank" class="btn-secondary">View Resume ↗</a>
+      <a href="https://www.linkedin.com/in/saurabh-sah3/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years in CAPEX &amp; OPEX procurement</div>
+      </div>
+      <div class="stat-icon">◈</div>
+    </div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-num">$3.53M</div>
+        <div class="stat-label">Annual spend managed at Tech Mahindra</div>
+      </div>
+      <div class="stat-icon">▦</div>
+    </div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Purchase orders processed per month</div>
+      </div>
+      <div class="stat-icon">⚙</div>
+    </div>
+    <div class="award-card">
+      <div class="award-top">
+        <span class="award-badge-pill">★ AWARD</span>
+        <span class="award-title">Bravo Award — Tech Mahindra 2025</span>
+      </div>
+      <div class="award-desc">Recognised for rapid learning and exceptional cost savings impact within the first year of joining the commercial team.</div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY METRICS -->
+<section style="border-top: 1px solid var(--border); padding: 64px 48px;">
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="highlight-num c-green">12%</div>
+      <div class="highlight-label">CAPEX &amp; OPEX cost savings on PAN-India Go-Live projects at Allcargo</div>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-num c-blue">60%</div>
+      <div class="highlight-label">Procurement TAT reduction via negotiated rate contracts across materials &amp; services</div>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-num c-amber">13%</div>
+      <div class="highlight-label">Cost savings delivered through vendor negotiations at Tech Mahindra</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="stack-grid">
+    <div class="stack-item">
+      <div class="stack-category">Procurement</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Strategic Sourcing</span>
+        <span class="stack-tag">Category Management</span>
+        <span class="stack-tag">P2P</span>
+        <span class="stack-tag">RFQ / RFP</span>
+        <span class="stack-tag">Tender Management</span>
+        <span class="stack-tag">Contract Negotiation</span>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-category">Supply Chain</div>
+      <div class="stack-tags">
+        <span class="stack-tag">CAPEX &amp; OPEX</span>
+        <span class="stack-tag">Spend Analysis</span>
+        <span class="stack-tag">Cost Optimisation</span>
+        <span class="stack-tag">Material Planning</span>
+        <span class="stack-tag">Logistics Coordination</span>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-category">Vendor Management</div>
+      <div class="stack-tags">
+        <span class="stack-tag">SRM</span>
+        <span class="stack-tag">Rate Contracts</span>
+        <span class="stack-tag">Vendor Negotiations</span>
+        <span class="stack-tag">On-site Coordination</span>
+        <span class="stack-tag">Import Management</span>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-category">ERP &amp; Tools</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Oracle Fusion</span>
+        <span class="stack-tag">SAP HANA</span>
+        <span class="stack-tag">MS Office</span>
+        <span class="stack-tag">Primavera</span>
+        <span class="stack-tag">MS Project</span>
+        <span class="stack-tag">AutoCAD</span>
+        <span class="stack-tag">CATIA</span>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-category">AI Tools</div>
+      <div class="stack-tags">
+        <span class="stack-tag">MS Copilot</span>
+        <span class="stack-tag">Claude</span>
+        <span class="stack-tag">ChatGPT</span>
+        <span class="stack-tag">Gemini</span>
+        <span class="stack-tag">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-category">Soft Skills</div>
+      <div class="stack-tags">
+        <span class="stack-tag">Stakeholder Management</span>
+        <span class="stack-tag">Team Leadership</span>
+        <span class="stack-tag">Cross-functional Collaboration</span>
+        <span class="stack-tag">Negotiation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Dec 2025 — Present</div>
+        <div class="exp-company">Allcargo Logistics</div>
+        <div class="exp-loc">PAN-India</div>
+      </div>
+      <div>
+        <div class="exp-role">Assistant Manager – Procurement</div>
+        <ul class="exp-bullets">
+          <li>Drove <strong>CAPEX and OPEX procurement</strong> for PAN-India projects, ensuring on-time Go-Live readiness and <strong>delivering 12% cost savings.</strong></li>
+          <li>Led PAN-India <strong>R&amp;M procurement</strong> for warehouses — securing <strong>5% savings</strong> via work order extensions and <strong>8% savings</strong> on new requirements while maintaining uninterrupted facility operations.</li>
+          <li><strong>Negotiated rate contracts</strong> across materials and services, <strong>cutting procurement TAT by 60%.</strong></li>
+          <li>Led a <strong>2-member procurement team</strong> across business units, improving process adherence and on-time delivery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Jan 2024 — Dec 2025</div>
+        <div class="exp-company">Tech Mahindra</div>
+        <div class="exp-loc">PAN-India</div>
+      </div>
+      <div>
+        <div class="exp-role">Business Associate – Commercial</div>
+        <ul class="exp-bullets">
+          <li><strong>Managed end-to-end P2P lifecycle</strong> for IT/non-IT CAPEX &amp; OPEX procurement — <strong>40+ POs/month</strong> across hardware, software, and operational categories.</li>
+          <li><strong>Closed 20+ U.S.-based lab engagement deals</strong> with <strong>95%+ on-time delivery</strong> and full compliance — contributing to <strong>$3.53M in combined annual spend managed,</strong> with vendor negotiations delivering <strong>13% cost savings.</strong></li>
+          <li><strong>Delivered monthly savings/SLA/PR reports</strong> tracking <strong>50+ open items,</strong> accelerating leadership decision-making by ~20%.</li>
+          <li><strong>Drove vendor pricing negotiations</strong> across <strong>10+ RFP cycles,</strong> contributing to <strong>$200K+</strong> in project wins.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Aug 2022 — Jan 2024</div>
+        <div class="exp-company">Ion Exchange (India)</div>
+        <div class="exp-loc">India &amp; Sri Lanka</div>
+      </div>
+      <div>
+        <div class="exp-role">Executive Purchase</div>
+        <ul class="exp-bullets">
+          <li><strong>Collaborated with IT</strong> to develop and test ERP enhancement tools and an e-Auction platform, boosting procurement efficiency.</li>
+          <li><strong>Managed P2P operations</strong> for mechanical/electrical CAPEX &amp; OPEX across <strong>15+ projects</strong> — vendor negotiations, imports, and on-site coordination.</li>
+          <li><strong>Tracked high-value government project procurement,</strong> coordinating with technical teams to <strong>cut fulfillment delays by ~15%.</strong></li>
+          <li><strong>Fast-tracked critical orders</strong> via on-site vendor visits, ensuring on-time project delivery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">May 2021 — Jul 2022</div>
+        <div class="exp-company">Stellar Value Chain</div>
+        <div class="exp-loc">PAN-India</div>
+      </div>
+      <div>
+        <div class="exp-role">Senior Officer</div>
+        <ul class="exp-bullets">
+          <li><strong>Led P2P process</strong> for admin, IT &amp; non-IT CAPEX/OPEX across <strong>20+ PAN-India warehouses,</strong> ensuring compliance and audit resolution.</li>
+          <li><strong>Tested Oracle Fusion</strong> procurement module pre-launch, enabling smooth system integration.</li>
+          <li><strong>Closed PAN-India rate contract</strong> for water coolers (25–250 LPH), <strong>cutting cycle time by ~20%.</strong></li>
+          <li><strong>Coordinated vendor visits and logistics,</strong> ensuring on-time delivery and audit-ready documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid">
+
+    <div class="edu-item">
+      <div class="exp-meta">
+        <div class="edu-year">In Progress</div>
+        <div class="edu-status">PURSUING</div>
+      </div>
+      <div>
+        <div class="edu-inst">Chartered Institute of Procurement &amp; Supply (CIPS)</div>
+        <div class="edu-degree">Level 4 — Diploma in Procurement &amp; Supply</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="exp-meta">
+        <div class="edu-year">2018 — 2020</div>
+      </div>
+      <div>
+        <div class="edu-inst">ICFAI Business School (IBS), Mumbai</div>
+        <div class="edu-degree">PGPM · Majors in Operations Management &amp; Minor in Marketing · 6.45 CGPA</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="exp-meta">
+        <div class="edu-year">2014 — 2018</div>
+      </div>
+      <div>
+        <div class="edu-inst">Kalinga Institute of Industrial Technology, Bhubaneswar</div>
+        <div class="edu-degree">B.Tech in Mechanical Engineering · 75.70%</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="contact-tagline">Let's build something <em>better.</em></p>
+      <p class="contact-sub">
+        Looking to discuss procurement strategy, cost optimisation, or a new opportunity? I'm always open to conversations that drive real impact.
+      </p>
+
+    </div>
+    <div class="contact-links">
+      <a href="tel:+918879788670" class="contact-link">
+        <span class="contact-link-icon">📞</span>
+        <div>
+          <div class="contact-link-label">PHONE</div>
+          <div class="contact-link-value">+91 88797 88670</div>
+        </div>
+      </a>
+      <a href="mailto:sahsaurabh3@gmail.com" class="contact-link">
+        <span class="contact-link-icon">✉</span>
+        <div>
+          <div class="contact-link-label">EMAIL</div>
+          <div class="contact-link-value">sahsaurabh3@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/saurabh-sah3/" target="_blank" class="contact-link">
+        <span class="contact-link-icon">↗</span>
+        <div>
+          <div class="contact-link-label">LINKEDIN</div>
+          <div class="contact-link-value">linkedin.com/in/saurabh-sah3</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Saurabh Sah. All rights reserved.</div>
+  <div class="footer-built">Built with <span>♥</span> — Procurement meets code.</div>
+</footer>
+
+</body>
+</html>
